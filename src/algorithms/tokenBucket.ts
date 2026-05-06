@@ -20,8 +20,8 @@ export function tokenBucket(key: string, options: RateLimiterOptions): boolean {
   const tokensToAdd = (timeElapsed / windowMs) * refillRate;
   bucket.tokens = Math.min(bucket.tokens + tokensToAdd, options.maxTokens);
   bucket.lastRefillTime = currentTime;
-
-  if (bucket.tokens < 1) {
+  // console.log(`key: ${key}, tokens: ${Math.floor(bucket.tokens)}`);
+  if (Math.floor(bucket.tokens) < 1) {
     return false;
   } else {
     bucket.tokens -= 1;
