@@ -12,13 +12,13 @@ Most rate limiting packages only support a single algorithm. `reqwall` gives you
 
 ## Features
 
-- ✅ Two algorithms — Token Bucket and Sliding Window
-- ✅ Zero external dependencies — pure in-memory storage
-- ✅ TypeScript support out of the box
-- ✅ Simple, Express-native middleware API
-- ✅ Configurable per route or globally
-- ✅ Meaningful 429 responses with `retryAfter` header
-- ✅ Lightweight — no Redis, no database required
+- Two algorithms — Token Bucket and Sliding Window
+- Zero external dependencies — pure in-memory storage
+- TypeScript support out of the box
+- Simple, Express-native middleware API
+- Configurable per route or globally
+- Meaningful 429 responses with `retryAfter` header
+- Lightweight — no Redis, no database required
 
 ---
 
@@ -99,10 +99,10 @@ app.get('/search', reqwall({
 
 | Option | Type | Required | Default | Description |
 |--------|------|----------|---------|-------------|
-| `algorithm` | `'token-bucket' \| 'sliding-window'` | ✅ Yes | — | The rate limiting algorithm to use |
-| `maxTokens` | `number` | ✅ Yes | — | Maximum number of requests allowed per window |
-| `windowMs` | `number` | ❌ No | `60000` | Time window in milliseconds (default: 1 minute) |
-| `refillRate` | `number` | ❌ No | `10` | Tokens to refill per window *(token-bucket only)* |
+| `algorithm` | `'token-bucket' \| 'sliding-window'` | Yes | — | The rate limiting algorithm to use |
+| `maxTokens` | `number` | Yes | — | Maximum number of requests allowed per window |
+| `windowMs` | `number` | No | `60000` | Time window in milliseconds (default: 1 minute) |
+| `refillRate` | `number` | No | `10` | Tokens to refill per window *(token-bucket only)* |
 
 ---
 
@@ -157,9 +157,9 @@ app.use(reqwall({
 
 | | Token Bucket | Sliding Window |
 |---|---|---|
-| Burst friendly | ✅ Yes | ❌ No |
-| Boundary exploit | ❌ None | ❌ None |
-| Strict enforcement | 🔶 Medium | ✅ Strict |
+| Burst friendly | Yes | No |
+| Boundary exploit | None | None |
+| Strict enforcement | Medium | Strict |
 | Memory usage | Low | Higher (stores timestamps) |
 | Best for | General APIs | Sensitive endpoints |
 
