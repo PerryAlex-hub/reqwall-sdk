@@ -18,6 +18,11 @@ export function tokenBucket(key: string, options: RateLimiterOptions): boolean {
   const refillRate = options.refillRate ?? 10;
   const windowMs = options.windowMs ?? 60000;
   const tokensToAdd = (timeElapsed / windowMs) * refillRate;
+  if (options.refillRate && options.refillRate > options.maxTokens) {
+  console.warn(
+    `reqwall: refillRate (${options.refillRate}) is greater than maxTokens (${options.maxTokens}). refillRate will be capped at maxTokens.`
+  );
+}
   bucket.tokens = Math.min(bucket.tokens + tokensToAdd, options.maxTokens);
   bucket.lastRefillTime = currentTime;
   // console.log(`key: ${key}, tokens: ${Math.floor(bucket.tokens)}`);
