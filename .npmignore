@@ -1,0 +1,8 @@
+src/
+tsconfig.json
+.env
+.gitignore
+example/
+*.tsbuildinfo
+coverage/
+.nyc_output/
