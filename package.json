@@ -1,6 +1,6 @@
 {
   "name": "reqwall",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lightweight rate limiting middleware for Express with token bucket and sliding window algorithms",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,6 +19,10 @@
   "author": "Ifechukwu Nwokedi Emmanuel",
   "license": "MIT",
   "type": "commonjs",
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/PerryAlex-hub/reqwall-sdk"
+  },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
